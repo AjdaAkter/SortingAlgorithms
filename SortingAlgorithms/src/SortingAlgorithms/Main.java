@@ -15,6 +15,12 @@ public class Main {
 
         System.out.println(CYAN_BOLD+"Avarage-----> O(n^2)  Worst-----> O(n^2)  Memory-----> O(1)"+RESET);
 
+        System.out.println("\n================================================================================");
+
+        INSERTIONSORT ( );
+        System.out.println("\n================================================================================");
+
+        System.out.println(CYAN_BOLD+"Avarage-----> O(n)  Worst-----> O(n^2)  Memory-----> O(n^2)"+RESET);
 
     }
 
@@ -45,6 +51,35 @@ public class Main {
             long startTime = System.currentTimeMillis();
             BubleSort sort = new BubleSort();
             sort.bubbleSort(mArray);
+            long endTime = System.currentTimeMillis();
+
+            long estimatedTime = endTime - startTime;
+            double second = (double) (estimatedTime) / 1000;
+
+            System.out.print("         " + GREEN_BOLD + second + RESET);
+        }
+
+    }
+    static private void INSERTIONSORT ( ) {
+        System.out.print("Insertion Sort   ||");
+        int size;
+
+        for (int i = 1; i <= 5; i++) {
+            if (i == 5) {
+                size = 50000;
+            } else {
+                size = (int) Math.pow(10, i);
+            }
+
+            int[] mArray = new int[size];
+
+
+            FileReader file = new FileReader();
+            file.readFile(mArray);
+
+            long startTime = System.currentTimeMillis();
+            InsertionSort sort = new InsertionSort();
+            sort.insertionSort(mArray);
             long endTime = System.currentTimeMillis();
 
             long estimatedTime = endTime - startTime;
